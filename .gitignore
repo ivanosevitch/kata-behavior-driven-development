@@ -1,0 +1,9 @@
+*.user
+**/bin
+**/obj/
+
+.idea/
+.vs/
+
+# SpecFlow generated files
+*.feature.cs
