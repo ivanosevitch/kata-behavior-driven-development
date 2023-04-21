@@ -11,4 +11,9 @@ public class Pokemon
         const int potionHealing = 20;
         HealthPoints = Math.Min(HealthPoints + potionHealing, MaximumHealthPoints);
     }
+
+    public void IsAttackedWith(Attack attack)
+    {
+        HealthPoints -= attack.Power;
+    }
 }

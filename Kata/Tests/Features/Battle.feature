@@ -11,3 +11,8 @@
         Given Pidgey has 110 maximum HP
         When Pidgey drinks a potion
         Then Pidgey should have 110 HP
+
+    Scenario: A Pokémon loses as many HP as the attack power
+        Given the attack 'Steel Wing' has a power of 70
+        When Pidgey is attacked with 'Steel Wing'
+        Then Pidgey should have 30 HP
