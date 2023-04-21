@@ -14,6 +14,12 @@ public class Battle
         _battlingPokemon = new Pokemon { Name = pokemonName, HealthPoints = healthPoints };
     }
 
+    [Given(@"(.*) has (\d*) maximum HP")]
+    public void GivenThePokemonHasTheseMaximumHp(string pokemonName, int maximumHeathPoints)
+    {
+        ThrowIfPokemonIsNotBattling(pokemonName);
+        _battlingPokemon!.MaximumHealthPoints = maximumHeathPoints;
+    }
 
     [When(@"(.*) drinks a potion")]
     public void WhenThePokemonDrinksAPotion(string pokemonName)
@@ -26,7 +32,7 @@ public class Battle
     public void ThenThePokemonShouldHaveThatManyHp(string pokemonName, int healthPoints)
     {
         ThrowIfPokemonIsNotBattling(pokemonName);
-            healthPoints.Should().Be(_battlingPokemon!.HealthPoints);
+        healthPoints.Should().Be(_battlingPokemon!.HealthPoints);
     }
 
     private void ThrowIfPokemonIsNotBattling(string pokemonName)
