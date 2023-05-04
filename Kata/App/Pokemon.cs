@@ -14,6 +14,6 @@ public class Pokemon
 
     public void IsAttackedWith(Attack attack)
     {
-        HealthPoints -= attack.Power;
+        HealthPoints = Math.Max(HealthPoints - attack.Power, 0);
     }
 }
