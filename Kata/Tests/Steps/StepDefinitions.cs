@@ -4,15 +4,23 @@ using Kata.App;
 namespace Kata.Tests.Steps;
 
 [Binding]
-public class Battle
+public class StepDefinitions
 {
     private Attack? _attack;
     private Pokemon? _battlingPokemon;
 
+    [Scope(Feature = "Battle")]
     [Given(@"(.*) has (\d*) HP")]
-    public void GivenThePokemonHasThatManyHp(string pokemonName, int healthPoints)
+    public void GivenThePokemonInBattleHasThatManyHp(string pokemonName, int healthPoints)
     {
-        _battlingPokemon = new Pokemon { Name = pokemonName, HealthPoints = healthPoints };
+        _battlingPokemon = new Pokemon { Name = pokemonName, HealthPoints = healthPoints, Location = Location.Battle };
+    }
+
+    [Scope(Feature = "Field")]
+    [Given(@"(.*) has (\d*) HP")]
+    public void GivenThePokemonInTheFieldHasThatManyHp(string pokemonName, int healthPoints)
+    {
+        _battlingPokemon = new Pokemon { Name = pokemonName, HealthPoints = healthPoints, Location = Location.Field };
     }
 
     [Given(@"(.*) has (\d*) maximum HP")]

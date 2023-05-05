@@ -5,10 +5,17 @@ public class Pokemon
     public string Name { get; init; } = "MissingNo.";
     public int HealthPoints { get; set; } = 10;
     public int MaximumHealthPoints { get; set; } = 1000;
+    public Location Location { get; init; } = Location.Battle;
 
     public void DrinkPotion()
     {
-        const int potionHealing = 20;
+        var potionHealing = Location switch
+        {
+            Location.Battle => 20,
+            Location.Field => 30,
+            _ => throw new ArgumentOutOfRangeException()
+        };
+
         HealthPoints = Math.Min(HealthPoints + potionHealing, MaximumHealthPoints);
     }
 
