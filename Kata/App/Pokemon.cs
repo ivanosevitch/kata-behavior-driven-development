@@ -2,10 +2,10 @@
 
 public class Pokemon
 {
-    public string Name { get; init; } = "MissingNo.";
+    public string Name { get; set; } = "MissingNo.";
     public int HealthPoints { get; set; } = 10;
     public int MaximumHealthPoints { get; set; } = 1000;
-    public Location Location { get; init; } = Location.Battle;
+    public Location Location { get; set; } = Location.Battle;
 
     public void DrinkPotion()
     {
